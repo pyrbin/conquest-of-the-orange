@@ -5,21 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class RotateWithVelocity : MonoBehaviour
 {
-
-    Rigidbody2D rigid;
+    private Rigidbody2D rigid;
     public GameObject Target;
 
     public float MaxRotation = 3;
     public float GrowthFactor = 0.5f;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float currentRotateSpeed = rigid.velocity.magnitude * GrowthFactor;
 

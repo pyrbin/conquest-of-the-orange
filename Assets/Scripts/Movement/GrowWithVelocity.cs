@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(MoveToCursor))]
 public class GrowWithVelocity : MonoBehaviour
 {
-    Rigidbody2D rigid;
+    private Rigidbody2D rigid;
     public GameObject Target;
 
     public float MinScale = 1;
@@ -14,15 +13,15 @@ public class GrowWithVelocity : MonoBehaviour
     public float GrowthFactor = 5;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float growtFactor = MinScale + rigid.velocity.magnitude/GrowthFactor;
+        float growtFactor = MinScale + rigid.velocity.magnitude / GrowthFactor;
 
         if (growtFactor > MaxScale)
             growtFactor = MaxScale;

@@ -25,5 +25,6 @@ public class FruitEntity : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Painter.RadiusMult = Grower.Target.transform.localScale.x;
     }
 }
