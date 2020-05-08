@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class MoveToCursor : MonoBehaviour
 {
 

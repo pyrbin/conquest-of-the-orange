@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class RotateWithVelocity : MonoBehaviour
 {
 
-    public float maxRotateSpeed = 10f;
-    float currentRotateSpeed = 0f;
     Rigidbody2D rigid;
+    public GameObject Target;
+
+    public float MaxRotation = 3;
+    public float GrowthFactor = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,11 @@ public class RotateWithVelocity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float currentRotateSpeed = rigid.velocity.magnitude * GrowthFactor;
+
+        if (currentRotateSpeed > MaxRotation)
+            currentRotateSpeed = MaxRotation;
+
+        Target.transform.Rotate(0.0f, 0.0f, -currentRotateSpeed, Space.Self);
     }
 }

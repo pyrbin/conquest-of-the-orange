@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 161796365}
   - component: {fileID: 161796364}
   - component: {fileID: 161796363}
-  - component: {fileID: 161796366}
+  - component: {fileID: 161796367}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -331,27 +331,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &161796366
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &161796367
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161796362}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c97ba192a4d52d40bcfecfb8097569e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DrawingLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  ActivateDebug: 1
+  DebugPaintSize: 20
+  DebugPaintColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1274823555
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +365,7 @@ GameObject:
   - component: {fileID: 1274823558}
   - component: {fileID: 1274823562}
   - component: {fileID: 1274823561}
+  - component: {fileID: 1274823563}
   m_Layer: 0
   m_Name: orange
   m_TagString: Untagged
@@ -455,7 +454,7 @@ MonoBehaviour:
   lastSpeed: 0
   acceleration: 3
   maxSpeed: 10
-  slowingDistance: 5
+  slowingDistance: 1
   slowed: 0
 --- !u!58 &1274823559
 CircleCollider2D:
@@ -506,6 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab0e091f3aab0c4eb70a17c39f0be46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 1274823555}
 --- !u!114 &1274823562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,4 +518,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87fe19bf4a67a1e4a9261eafdad00e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRotateSpeed: 10
+  Target: {fileID: 1274823555}
+--- !u!114 &1274823563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274823555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2851b3532b531fe43bd11d70491ee1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PaintingData:
+    Radius: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+  Surface: {fileID: 0}
+  RadiusMult: 1
