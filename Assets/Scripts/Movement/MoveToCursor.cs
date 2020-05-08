@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
 
-public class BallMovement : MonoBehaviour
+public class MoveToCursor : MonoBehaviour
 {
 
     Vector3 currentMovementVector;
