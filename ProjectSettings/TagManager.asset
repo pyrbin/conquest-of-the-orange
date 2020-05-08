@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainSurface
+  - FruitEntity
   layers:
   - Default
   - TransparentFX
