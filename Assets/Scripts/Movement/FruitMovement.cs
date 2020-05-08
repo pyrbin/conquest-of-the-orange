@@ -4,16 +4,15 @@ using UnityEngine;
 using Unity.Mathematics;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class MoveToCursor : MonoBehaviour
+public class FruitMovement : MonoBehaviour
 {
+    private Vector3 currentMovementVector;
 
-    Vector3 currentMovementVector;
+    // private Vector3 clickScreenPosition;
+    private Vector3 clickWorldPosition;
 
-    Vector3 clickScreenPosition;
-    Vector3 clickWorldPosition;
-
-    Vector3 currentPointToMoveTo;
-    Transform cachedTransform;
+    private Vector3 currentPointToMoveTo;
+    private Transform cachedTransform;
 
     public float speed = 0.0f;
 
@@ -24,24 +23,19 @@ public class MoveToCursor : MonoBehaviour
 
     public bool slowed = false;
 
-    Rigidbody2D rigid;
+    private Rigidbody2D rigid;
 
-
-    // Use this for initialization  
-    void Start()
+    // Use this for initialization
+    private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         cachedTransform = transform;
     }
 
     // Update is called once per frame
-    void Update()
+    public void MoveTo(Vector3 moveTo)
     {
-    
-        // Retrive the click of the mouse in the game world
-        clickScreenPosition = Input.mousePosition;
-
-        clickWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(clickScreenPosition.x, clickScreenPosition.y, 0));
+        clickWorldPosition = moveTo;
         currentPointToMoveTo = clickWorldPosition;
 
         // Reset the z position of the clicking point to 0
@@ -81,13 +75,12 @@ public class MoveToCursor : MonoBehaviour
             speed += currentMovementVector.magnitude * acceleration * Time.deltaTime;
         }
 
-
-
-        // If the velocity is above the allowed limit, normalize it and keep it at a constant max speed when moving (instead of uniformly accelerating)
+        // If the velocity is above the allowed limit, normalize it and keep it at a constant max
+        // speed when moving (instead of uniformly accelerating)
         Vector2 accelerationVector = currentMovementVector * speed;
 
-
-        // If the velocity is above the allowed limit, normalize it and keep it at a constant max speed when moving (instead of uniformly accelerating)
+        // If the velocity is above the allowed limit, normalize it and keep it at a constant max
+        // speed when moving (instead of uniformly accelerating)
         if (accelerationVector.magnitude >= (maxSpeed))
         {
             accelerationVector.Normalize();

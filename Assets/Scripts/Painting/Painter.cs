@@ -15,16 +15,24 @@ public class Painter : MonoBehaviour
 
     public PainterData PaintingData;
     public PaintableSurfaceTexture Surface;
+    public bool ReleasePaint;
 
     [HideInInspector]
     public float RadiusMult = 1f;
 
     public float2 WorldPos2D => new float2(transform.position.x, transform.position.y);
 
+    public void Start()
+    {
+        if (!Surface)
+        {
+            Surface = GameObject.FindGameObjectWithTag("MainSurface").GetComponent<PaintableSurfaceTexture>();
+        }
+    }
+
     public void Update()
     {
-        // TODO: Remove
-        if (Input.GetMouseButton(0))
+        if (ReleasePaint)
         {
             Paint(Surface);
         }
