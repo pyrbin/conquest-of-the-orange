@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370793499}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Init
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,6 +387,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 69412561}
     m_Modifications:
+    - target: {fileID: 2169395160260996318, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: MaxScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2169395160260996318, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: GrowthFactor
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994719651322227501, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: MaxRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994719651322227501, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: GrowthFactor
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6486661485284292974, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: Surface
       value: 
@@ -395,17 +411,29 @@ PrefabInstance:
       propertyPath: PaintingData.Radius
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6486661485284292974, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: PaintingData.Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486661485284292974, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: PaintingData.Color.g
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486661485284292974, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: PaintingData.Color.b
+      value: 0.15294118
+      objectReference: {fileID: 0}
     - target: {fileID: 7783878015639297557, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7783878015639297642, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.85
       objectReference: {fileID: 0}
     - target: {fileID: 7783878015639297642, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 7783878015639297642, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: m_LocalPosition.z
