@@ -13,6 +13,8 @@ public class FruitEntity : MonoBehaviour
     public GrowWithVelocity Grower { get; private set; }
     public Painter Painter { get; private set; }
 
+    public SpriteRenderer Flag { get; private set; }
+
     public Color Color => Painter.PaintingData.Color;
 
     // Start is called before the first frame update
@@ -22,6 +24,9 @@ public class FruitEntity : MonoBehaviour
         Rotator = GetComponent<RotateWithVelocity>();
         Grower = GetComponent<GrowWithVelocity>();
         Painter = GetComponent<Painter>();
+
+        Flag = transform.Find("Body/Flag").GetComponent<SpriteRenderer>();
+        Flag.color = Color;
     }
 
     // Update is called once per frame
@@ -32,7 +37,6 @@ public class FruitEntity : MonoBehaviour
 
     public void OnSquish()
     {
-    
         Destroy(this.gameObject);
     }
 }
