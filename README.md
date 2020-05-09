@@ -1,4 +1,4 @@
-<a href="#"><img id="#logo" align="left" src="https://via.placeholder.com/100" width="150" height="150" style="margin-right: 15px;"></a>
+<a href="#"><img id="#logo" align="left" src="logo.png" width="150" height="150" style="margin-right: 15px;"></a>
 
 ## Conquest of the Orange
 
