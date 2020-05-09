@@ -103,6 +103,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.022
       objectReference: {fileID: 0}
+    - target: {fileID: 3640842827177181812, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: maxVelocity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640842827177181812, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: minSlowingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640842827177181812, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: slowingFactor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640842827177181812, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: accDistanceFactor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4381612165925224237, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_Sprite
       value: 

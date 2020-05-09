@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public CoverageIndicator CoverageIndicator;
     public Transform Grid;
 
+    private Text CountdownLabel;
     private LevelManager levelManager;
+
+    public void SetClockActive(bool status)
+    {
+        transform.Find("Canvas/Countdown").gameObject.SetActive(status);
+    }
 
     public void SetCurrentLevel(int id)
     {
@@ -34,6 +41,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         levelManager = Game.Find().LevelManager;
+        CountdownLabel = transform.Find("Canvas/Countdown/Label").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -41,5 +49,6 @@ public class UIManager : MonoBehaviour
     {
         CoverageIndicator.SetFillColor(levelManager.Player.FruitEntity.Color);
         CoverageIndicator.SetPercentage(levelManager.PlayerWinPerc);
+        CountdownLabel.text = "" + levelManager.Countdown;
     }
 }
