@@ -32,6 +32,7 @@ public class FruitEntity : MonoBehaviour
 
     public void OnSquish()
     {
+    
         Destroy(this.gameObject);
     }
 }
