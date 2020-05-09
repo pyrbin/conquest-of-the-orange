@@ -20,6 +20,8 @@ public class FruitMovement : MonoBehaviour
     public float accDistanceFactor = 1f;
     public float slowingFactor = 1f;
 
+    public float maxVelocity = 1f;
+
     [HideInInspector]
     public Rigidbody2D rigid;
 
@@ -74,6 +76,15 @@ public class FruitMovement : MonoBehaviour
         else
         {
             rigid.AddForce(currentMovementVector);
+        }
+
+    }
+
+    private void Update()
+    {
+        if (rigid.velocity.magnitude > maxVelocity)
+        {
+            rigid.velocity = rigid.velocity.normalized*maxVelocity;
         }
     }
 }
