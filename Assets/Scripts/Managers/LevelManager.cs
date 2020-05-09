@@ -308,7 +308,7 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        var bots = levelsCompleted == 0 ? 1 : UnityEngine.Random.Range(3, 5);
+        var bots = levelsCompleted == 0 ? 1 : UnityEngine.Random.Range(2, 5);
         var levelInfo = levelGrid[playerPos.x, playerPos.y];
 
         for (int i = 0; i < bots; i++)

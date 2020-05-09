@@ -70,7 +70,7 @@ public class FruitEntity : MonoBehaviour
     public void OnSquish()
     {
         Destroy(transform.parent.gameObject);
-        Game.Find().LevelManager.MainCamera.ShakeCamera(0.55f, 0.8f);
+        Game.Find().LevelManager.MainCamera.ShakeCamera(0.45f, 1.22f);
         Game.Find().AudioManager.PlayOneShotSound(AudioManager.SoundType.SQUISH);
     }
 }
