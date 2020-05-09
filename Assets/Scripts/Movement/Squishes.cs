@@ -11,7 +11,8 @@ public class Squishes : MonoBehaviour
     public bool Eatable(FruitEntity other)
     {
         if (other == null || fruitEntity == null) return false;
-        return (fruitEntity.Grower.Growth - other.Grower.Growth > other.Squishes.Threshold);
+        if (other.transform.parent.tag == transform.parent.tag) return false;
+        return (fruitEntity.Grower.Growth - other.Grower.Growth > Threshold);
     }
 
     private void Awake()

@@ -295,7 +295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fill the map with 80% of your color & squish the other fruits by going
+  m_Text: Fill the map with 60% of your juices & squish the other fruits by going
     fast (u get bigger :))
 --- !u!222 &21098454
 CanvasRenderer:

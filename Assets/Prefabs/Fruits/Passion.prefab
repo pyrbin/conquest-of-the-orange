@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 410073551}
   m_Layer: 0
   m_Name: Passion
-  m_TagString: Untagged
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,10 +103,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.018
       objectReference: {fileID: 0}
+    - target: {fileID: 3640842827177181812, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: minAcceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640842827177181812, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: minSlowingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640842827177181812, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: slowingFactor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4381612165925224237, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: dd4b5f59efa659b4baa617b697fc45a5, type: 3}
+    - target: {fileID: 4449334867395995025, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: GrowthFactor
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4462492605097021771, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_IsActive
       value: 0

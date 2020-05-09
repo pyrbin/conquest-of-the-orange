@@ -23,10 +23,17 @@ public class RandomController : MonoBehaviour
     {
         if ((FruitEntity.transform.position - TargetPos).magnitude < 5)
             TargetPos = getNewPosition();
+
+        if (FruitEntity.Squishes.Eatable(Game.Find().LevelManager.Player.FruitEntity))
+        {
+            FruitEntity.Movement.MoveTo(Game.Find().LevelManager.Player.FruitEntity.transform.position);
+        }
+
         FruitEntity.Movement.MoveTo(TargetPos);
     }
 
-    private Vector2 getNewPosition() {
+    private Vector2 getNewPosition()
+    {
         float x = Random.Range(levelXBounds().x, levelXBounds().y);
         float y = Random.Range(levelYBounds().x, levelYBounds().y);
         return new Vector2(x, y);
@@ -35,15 +42,14 @@ public class RandomController : MonoBehaviour
     private float2 levelXBounds()
     {
         LevelInfo levelInfo = Game.Find().LevelManager.GetCurrentLevel();
-        float width = 8.5f;
+        float width = 9f;
         return new Vector2((levelInfo.Pos.x - width), (levelInfo.Pos.x + width));
     }
 
     private float2 levelYBounds()
     {
         LevelInfo levelInfo = Game.Find().LevelManager.GetCurrentLevel();
-        float height = 4.6f;
+        float height = 5f;
         return new Vector2((levelInfo.Pos.y - height), (levelInfo.Pos.y + height));
     }
-
 }

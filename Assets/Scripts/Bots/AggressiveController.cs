@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AggressiveController : MonoBehaviour
 {
-
     public FruitEntity FruitEntity { get; private set; }
 
     [HideInInspector]
@@ -25,8 +24,6 @@ public class AggressiveController : MonoBehaviour
         float xOffset = Random.Range(-1.5f, 1.5f);
         float yOffset = Random.Range(-1.5f, 1.5f);
         Vector2 pos = new Vector2(player.position.x + xOffset, player.position.y + yOffset);
-        FruitEntity.Movement.MoveTo(pos);
+        FruitEntity.Movement.MoveTo(pos + player.velocity * UnityEngine.Random.insideUnitSphere * 2f);
     }
-
-
 }

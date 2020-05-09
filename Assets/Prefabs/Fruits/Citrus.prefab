@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1589916435}
   m_Layer: 0
   m_Name: Citrus
-  m_TagString: Untagged
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9ba8b583e93102147b1419aea0a44907, type: 3}
+    - target: {fileID: 4449334867395995025, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: GrowthFactor
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4462492605097021771, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_IsActive
       value: 0

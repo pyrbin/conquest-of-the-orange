@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -174,11 +175,20 @@ public class LevelManager : MonoBehaviour
 
             case State.Play:
 
+                if (Player == null)
+                {
+                    GameOver(false);
+                }
+
                 foreach (var bot in spawnedBots)
                 {
                     if (bot == null) continue;
 
                     var other = bot.GetComponentInChildren<FruitEntity>();
+
+                    if (other == null || other.Squishes == null || Player == null
+                        || Player.FruitEntity == null || Player.FruitEntity.Squishes == null)
+                        continue;
 
                     if (Player.FruitEntity.Squishes.Eatable(other))
                     {
@@ -252,7 +262,7 @@ public class LevelManager : MonoBehaviour
         // TODO: remove shake? MainCamera.ShakeCamera(1.1f, 1f);
 
         ResetMap();
-        SpawnBots();
+        StartCoroutine(SpawnBots());
 
         GameState = State.Play;
     }
@@ -270,9 +280,10 @@ public class LevelManager : MonoBehaviour
         MapSurface.ClearSurface();
     }
 
-    private void SpawnBots()
+    private IEnumerator SpawnBots()
     {
-        // TODO: Add bots
+        yield return new WaitForSeconds(1.0f);
+
         var bots = UnityEngine.Random.Range(3, 5);
         var levelInfo = levelGrid[playerPos.x, playerPos.y];
 
@@ -280,7 +291,8 @@ public class LevelManager : MonoBehaviour
         {
             var idx = UnityEngine.Random.Range(0, BotPrefabs.Length);
 
-            var pos = (Vector3)levelInfo.Pos + UnityEngine.Random.insideUnitSphere * 4f;
+            Vector3 offset = new Vector3(UnityEngine.Random.Range(-1.5f, 1.5f), UnityEngine.Random.Range(-1.5f, 1.5f), 0);
+            var pos = ((Vector3)levelInfo.Pos + offset) + UnityEngine.Random.insideUnitSphere * 3f;
 
             spawnedBots.Add(Instantiate(BotPrefabs[idx], pos, quaternion.identity, transform) as GameObject);
         }

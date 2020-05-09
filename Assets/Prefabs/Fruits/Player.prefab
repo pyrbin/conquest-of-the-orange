@@ -95,9 +95,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1132370429297070293, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: Threshold
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2020658288813200233, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449334867395995025, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: GrowthFactor
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4462492605097021771, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_IsActive

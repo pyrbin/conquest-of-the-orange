@@ -380,11 +380,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e111704d072170d4686c58e45bd785c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minAcceleration: 5
+  minAcceleration: 6
   minSlowingDistance: 1
   accDistanceFactor: 1
   slowingFactor: 1
-  maxVelocity: 15
+  maxVelocity: 17
   rigid: {fileID: 0}
 --- !u!114 &7418770084024443490
 MonoBehaviour:
@@ -399,8 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 7509893996516360874}
-  MaxRotation: 4
-  GrowthFactor: 0.4
+  MaxRotation: 5
+  GrowthFactor: 0.42
 --- !u!114 &4449334867395995025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,8 +415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 8333594469526891905}
   MinScale: 1
-  MaxScale: 4
-  GrowthFactor: 10
+  MaxScale: 4.4
+  GrowthFactor: 9
   Growth: 1
 --- !u!114 &8764369200995692577
 MonoBehaviour:
@@ -448,4 +448,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da3ee73d60dfb147a24b256935b1763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Threshold: 0.8
+  Threshold: 0.4

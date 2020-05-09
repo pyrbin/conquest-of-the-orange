@@ -20,7 +20,6 @@ public class PredeterminedController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-
         if (Points == null || Points.Count == 0)
         {
             Points.Add(new Vector2(-8, -4));
@@ -29,7 +28,7 @@ public class PredeterminedController : MonoBehaviour
             Points.Add(new Vector2(-8, 4));
             Points.Add(new Vector2(0, 0));
         }
-   
+
         foreach (Vector2 point in Points)
         {
             if (math.abs(point.x) > width)
@@ -38,20 +37,29 @@ public class PredeterminedController : MonoBehaviour
                 print("Absolute value of y must be less than " + height);
         }
 
-
         index = Random.Range(0, Points.Count);
         TargetPos = getNewPosition();
         FruitEntity = GetComponentInChildren<FruitEntity>();
-
-
     }
 
     // Update is called once per frame
     private void Update()
     {
-        print((FruitEntity.transform.position - TargetPos).magnitude);
+        if (FruitEntity == null)
+        {
+            FruitEntity = GetComponentInChildren<FruitEntity>();
+
+            return;
+        }
+
         if ((FruitEntity.transform.position - TargetPos).magnitude < GoalDistance)
             TargetPos = getNewPosition();
+
+        if (FruitEntity.Squishes.Eatable(Game.Find().LevelManager.Player.FruitEntity))
+        {
+            FruitEntity.Movement.MoveTo(Game.Find().LevelManager.Player.FruitEntity.transform.position);
+        }
+
         FruitEntity.Movement.MoveTo(TargetPos);
     }
 
@@ -63,5 +71,4 @@ public class PredeterminedController : MonoBehaviour
         Vector2 point = new Vector2(relativePoint.x + levelInfo.Pos.x, relativePoint.y + levelInfo.Pos.y);
         return point;
     }
-
 }

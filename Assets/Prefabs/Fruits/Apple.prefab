@@ -115,6 +115,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4449334867395995025, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: GrowthFactor
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4462492605097021771, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_IsActive
       value: 0
