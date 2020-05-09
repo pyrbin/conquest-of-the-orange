@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Vector3 WorldMousePos { get; private set; }
 
-    private FruitEntity FruitEntity;
+    public FruitEntity FruitEntity { get; private set; }
 
     // Start is called before the first frame update
     private void Awake()

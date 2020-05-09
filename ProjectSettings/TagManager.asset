@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MainSurface
   - FruitEntity
+  - Game
   layers:
   - Default
   - TransparentFX
