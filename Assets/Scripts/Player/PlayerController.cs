@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (FruitEntity.Movement.rigid.velocity.magnitude > 1f)
-            Game.Find().AudioManager.PlaySound(AudioManager.SoundType.ROLL);
+            AudioManager.Find().PlaySound(AudioManager.SoundType.ROLL);
         if (FruitEntity.Movement.rigid.velocity.magnitude < 1f)
-            Game.Find().AudioManager.StopSound(AudioManager.SoundType.ROLL);
+            AudioManager.Find().StopSound(AudioManager.SoundType.ROLL);
 
         UpdateMousePos();
 

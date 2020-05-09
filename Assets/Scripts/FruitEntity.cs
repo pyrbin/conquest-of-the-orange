@@ -71,6 +71,6 @@ public class FruitEntity : MonoBehaviour
     {
         Destroy(transform.parent.gameObject);
         Game.Find().LevelManager.MainCamera.ShakeCamera(0.45f, 1.22f);
-        Game.Find().AudioManager.PlayOneShotSound(AudioManager.SoundType.SQUISH);
+        AudioManager.Find().PlayOneShotSound(AudioManager.SoundType.SQUISH);
     }
 }

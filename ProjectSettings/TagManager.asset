@@ -8,6 +8,7 @@ TagManager:
   - FruitEntity
   - Game
   - Bot
+  - AudioManager
   layers:
   - Default
   - TransparentFX

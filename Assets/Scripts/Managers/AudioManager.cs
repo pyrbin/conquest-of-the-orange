@@ -48,6 +48,17 @@ public class AudioManager : MonoBehaviour
     private AudioSource AMenu;
     private AudioSource AGameplay;
 
+    public static AudioManager Find()
+    {
+        if (Instance == null)
+        {
+            Instance = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        }
+        return Instance;
+    }
+
+    private static AudioManager Instance;
+
     // Start is called before the first frame update
     void Start()
     {

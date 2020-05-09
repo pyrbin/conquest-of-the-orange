@@ -18,5 +18,4 @@ public class Game : MonoBehaviour
 
     public LevelManager LevelManager;
     public UIManager UIManager;
-    public AudioManager AudioManager;
 }

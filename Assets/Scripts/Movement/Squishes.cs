@@ -24,7 +24,7 @@ public class Squishes : MonoBehaviour
     {
         if (collision.gameObject.tag != "FruitEntity")
         {
-            Game.Find().AudioManager.PlayOneShotSound(AudioManager.SoundType.BOUNCE);
+            AudioManager.Find().PlayOneShotSound(AudioManager.SoundType.BOUNCE);
             return;
         }
            
