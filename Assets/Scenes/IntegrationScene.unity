@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: BotPrefabs.Array.data[5]
       value: 
       objectReference: {fileID: 3644427336693608374, guid: 7611b014c0530ba41a0cf3e1f04163fe, type: 3}
+    - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
+      propertyPath: MapTime
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1999122708543614204, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
       propertyPath: m_Name
       value: Level Manager
@@ -359,6 +363,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 573328676938861331, guid: 9de8ae065661e5a44b611f3b370312c0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -72
+      objectReference: {fileID: 0}
     - target: {fileID: 5848540385508032908, guid: 9de8ae065661e5a44b611f3b370312c0, type: 3}
       propertyPath: m_Name
       value: UI Manager

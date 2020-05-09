@@ -42,6 +42,7 @@ public class LevelManager : MonoBehaviour
     public float MapYOffset = -8f;
 
     public int2 PlayerStart = new int2(1, 1);
+    public int MapTime = 15;
 
     [Header("Win Condition")]
     public float CoverageWinPerc = 0.5f;
@@ -58,6 +59,8 @@ public class LevelManager : MonoBehaviour
     public PaintableSurfaceTexture MapSurface { get; private set; }
     public MapLevel MapLevel { get; private set; }
 
+    public int Countdown { get; private set; } = 15;
+
     public LevelInfo GetCurrentLevel()
     {
         return levelGrid[playerPos.x, playerPos.y];
@@ -72,6 +75,8 @@ public class LevelManager : MonoBehaviour
     private int levelsCompleted = 0;
     private int2 playerMove = int2.zero;
     private List<GameObject> spawnedBots = new List<GameObject>();
+
+    private System.Timers.Timer mapTimer;
 
     private void PopulateGrid()
     {
@@ -146,6 +151,12 @@ public class LevelManager : MonoBehaviour
 
         MainCamera.Target = Map.transform;
 
+        mapTimer = new System.Timers.Timer(1000);
+
+        mapTimer.Elapsed +=
+            //This function decreases BoomDown every second
+            (object sender, System.Timers.ElapsedEventArgs e) => Countdown--;
+
         PopulateGrid();
 
         Game.Find().UIManager.SetCurrentLevel(levelGrid[playerPos.x, playerPos.y].Id);
@@ -174,8 +185,8 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case State.Play:
-
-                if (Player == null)
+                Debug.Log(Countdown);
+                if (Player == null || Countdown <= 0)
                 {
                     GameOver(false);
                 }
@@ -208,6 +219,8 @@ public class LevelManager : MonoBehaviour
                 // Player has enough coverage
                 if (PlayerCoverage >= CoverageWinPerc)
                 {
+                    mapTimer.Stop();
+
                     KillAllBots();
 
                     // Complete Level
@@ -236,8 +249,12 @@ public class LevelManager : MonoBehaviour
 
     public void StartTravelState()
     {
+        Game.Find().UIManager.SetClockActive(false);
+
         GameState = State.Travel;
+
         AvailableNeighbourLevels(out var available);
+
         foreach (var dir in available)
         {
             MapLevel.EnableArrow(dir);
@@ -261,7 +278,13 @@ public class LevelManager : MonoBehaviour
 
         // TODO: remove shake? MainCamera.ShakeCamera(1.1f, 1f);
 
+        Game.Find().UIManager.SetClockActive(true);
+
         ResetMap();
+
+        //Initialize timer with 1 second intervals
+        Countdown = MapTime;
+        mapTimer.Start();
         StartCoroutine(SpawnBots());
 
         GameState = State.Play;
