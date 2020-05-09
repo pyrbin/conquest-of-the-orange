@@ -76,9 +76,4 @@ public class FruitMovement : MonoBehaviour
             rigid.AddForce(currentMovementVector);
         }
     }
-
-    public float VelocityMagnitude()
-    {
-        return rigid.velocity.magnitude;
-    }
 }

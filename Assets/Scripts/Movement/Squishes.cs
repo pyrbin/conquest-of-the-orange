@@ -5,24 +5,35 @@ using UnityEngine;
 [RequireComponent(typeof(FruitEntity))]
 public class Squishes : MonoBehaviour
 {
-    public float Power = 5f;
-    public float Threshold = 5f;
-
-    private FruitMovement movement;
+    public float Threshold = 0.1f;
+    private FruitEntity fruitEntity;
 
     // Start is called before the first frame update
     void Start()
     {
-        movement = GetComponent<FruitEntity>().Movement;
+        fruitEntity = GetComponent<FruitEntity>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        print(movement.VelocityMagnitude() + "colision");
-        FruitMovement otherMovement = collision.gameObject.GetComponent<FruitEntity>().Movement;
+        if (collision.gameObject.tag != "FruitEntity")
+            return;
+
+        FruitEntity otherFruitEntity = collision.gameObject.GetComponent<FruitEntity>();
+        Squishes otherSquishy = otherFruitEntity.gameObject.GetComponent<Squishes>();
 
 
-        if (movement.VelocityMagnitude() - otherMovement.VelocityMagnitude() > Threshold)
-            Destroy(this.gameObject);
+        if (fruitEntity.Grower.Growth - otherFruitEntity.Grower.Growth > otherSquishy.Threshold)
+        {
+            otherFruitEntity.OnSquish();
+        }
+
+
+        if (otherFruitEntity.Grower.Growth - fruitEntity.Grower.Growth > Threshold)
+        {
+            fruitEntity.OnSquish();
+        }
+
+
     }
 }

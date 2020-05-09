@@ -38,6 +38,8 @@ public class LevelManager : MonoBehaviour
 
     public float MapYOffset = -8f;
 
+    public int2 PlayerStart = new int2(1, 1);
+
     [Header("Win Condition")]
     public float CoverageWinPerc = 0.5f;
 
@@ -124,6 +126,7 @@ public class LevelManager : MonoBehaviour
 
     public void Awake()
     {
+        playerPos = PlayerStart;
         Map = Instantiate(MapPrefab, MapPositionForId(0), quaternion.identity, transform);
         MapSurface = Map.GetComponentInChildren<PaintableSurfaceTexture>();
         MapLevel = Map.GetComponent<MapLevel>();
