@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     [Header("Refs")]
     public LevelCamera MainCamera;
 
-    public FruitEntity Player;
+    public PlayerController Player;
 
     [Header("Map Settings")]
     public float MapXOffset = 14.5f;
@@ -53,6 +53,7 @@ public class LevelManager : MonoBehaviour
     public PaintableSurfaceTexture MapSurface { get; private set; }
     public MapLevel MapLevel { get; private set; }
     public float PlayerCoverage { get; private set; }
+    public float PlayerWinPerc => PlayerCoverage / CoverageWinPerc;
 
     private LevelInfo[,] levelGrid = new LevelInfo[GridSize, GridSize];
 
@@ -134,6 +135,8 @@ public class LevelManager : MonoBehaviour
 
         PopulateGrid();
 
+        Game.Find().UIManager.SetCurrentLevel(levelGrid[playerPos.x, playerPos.y].Id);
+
         StartPlayState();
     }
 
@@ -158,13 +161,18 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case State.Play:
-                PlayerCoverage = MapSurface.PaintCoverage(Player.Color);
+                PlayerCoverage = MapSurface.PaintCoverage(Player.FruitEntity.Color);
                 // Player has enough coverage
                 if (PlayerCoverage >= CoverageWinPerc)
                 {
                     // Complete Level
+                    var levelInfo = levelGrid[playerPos.x, playerPos.y];
                     levelGrid[playerPos.x, playerPos.y].Completed = true;
                     levelsCompleted++;
+
+                    Game.Find().UIManager.SetLevelCompleted(levelInfo.Id);
+
+                    // Player.transform.position = levelInfo.Pos;
 
                     KillAllBots();
 
@@ -180,6 +188,7 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case State.Travel:
+                PlayerCoverage = MapSurface.PaintCoverage(Player.FruitEntity.Color);
                 break;
         }
     }
@@ -197,6 +206,9 @@ public class LevelManager : MonoBehaviour
     private void MoveToNextLevel()
     {
         playerPos += playerMove;
+
+        Game.Find().UIManager.SetCurrentLevel(levelGrid[playerPos.x, playerPos.y].Id);
+
         playerMove = int2.zero;
     }
 
