@@ -16,6 +16,7 @@ public class FruitEntity : MonoBehaviour
     public Squishes Squishes { get; private set; }
 
     public SpriteRenderer Flag { get; private set; }
+    public SpriteRenderer Model { get; private set; }
 
     public Color Color => Painter.PaintingData.Color;
 
@@ -31,6 +32,8 @@ public class FruitEntity : MonoBehaviour
         Squishes = GetComponent<Squishes>();
 
         Flag = transform.Find("Body/Flag").GetComponent<SpriteRenderer>();
+        Model = transform.Find("Body/Sprite").GetComponent<SpriteRenderer>();
+
         Flag.color = Color;
         flagStartRot = Flag.transform.rotation.z;
     }
@@ -48,6 +51,7 @@ public class FruitEntity : MonoBehaviour
         else
         {
             Flag.flipX = false;
+
             Flag.transform.rotation = Quaternion.Euler(0, 0, flagStartRot - (Movement.MaxSpeedPerc * MaxFlagRotation));
         }
     }

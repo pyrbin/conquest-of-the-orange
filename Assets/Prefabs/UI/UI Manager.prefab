@@ -320,7 +320,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 6c2085600a45a0d448517be6bc7fcb1c, type: 3}
     m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Old Alexs Farm
+  m_Text: 'Dr. Phils'' Ranch
 
 '
 --- !u!1 &5427523010250895554
@@ -1135,6 +1135,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5848540384388465577}
     m_Modifications:
+    - target: {fileID: 6809157466076670050, guid: 550d1bc3f6d60654c94525c8f612c6b7, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 6c2085600a45a0d448517be6bc7fcb1c, type: 3}
+    - target: {fileID: 6809157466076670050, guid: 550d1bc3f6d60654c94525c8f612c6b7, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8338714451094903066, guid: 550d1bc3f6d60654c94525c8f612c6b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

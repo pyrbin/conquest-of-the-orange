@@ -185,9 +185,10 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case State.Play:
-                Debug.Log(Countdown);
+
                 if (Player == null || Countdown <= 0)
                 {
+                    mapTimer.Stop();
                     GameOver(false);
                 }
 
@@ -307,7 +308,7 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        var bots = UnityEngine.Random.Range(3, 5);
+        var bots = levelsCompleted == 0 ? 1 : UnityEngine.Random.Range(3, 5);
         var levelInfo = levelGrid[playerPos.x, playerPos.y];
 
         for (int i = 0; i < bots; i++)
@@ -337,24 +338,25 @@ public class LevelManager : MonoBehaviour
 
     private void GameOver(bool success)
     {
-        Debug.Log("GameOver with status " + success);
         if (success)
         {
-            GoToVictoryScene();
+            StartCoroutine(GoToVictoryScene());
         }
         else
         {
-            GoToGameOverScene();
+            StartCoroutine(GoToGameOverScene());
         }
     }
 
-    private void GoToVictoryScene()
+    private IEnumerator GoToVictoryScene()
     {
+        yield return new WaitForSeconds(1.0f);
         transform.Find("ChangeToVictory").GetComponent<ChangeScene>().LoadScene();
     }
 
-    private void GoToGameOverScene()
+    private IEnumerator GoToGameOverScene()
     {
+        yield return new WaitForSeconds(1.0f);
         transform.Find("ChangeToGameOver").GetComponent<ChangeScene>().LoadScene();
     }
 }
