@@ -56,6 +56,12 @@ public class LevelManager : MonoBehaviour
     public GameObject Map { get; private set; }
     public PaintableSurfaceTexture MapSurface { get; private set; }
     public MapLevel MapLevel { get; private set; }
+
+    public LevelInfo GetCurrentLevel()
+    {
+        return levelGrid[playerPos.x, playerPos.y];
+    }
+
     public float PlayerCoverage { get; private set; }
     public float PlayerWinPerc => PlayerCoverage / CoverageWinPerc;
 
