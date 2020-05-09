@@ -70,6 +70,7 @@ public class LevelManager : MonoBehaviour
     private int2 playerPos = new int2(1, 1);
     private int levelsCompleted = 0;
     private int2 playerMove = int2.zero;
+    private List<GameObject> spawnedBots = new List<GameObject>();
 
     private void PopulateGrid()
     {
@@ -176,6 +177,8 @@ public class LevelManager : MonoBehaviour
                 // Player has enough coverage
                 if (PlayerCoverage >= CoverageWinPerc)
                 {
+                    KillAllBots();
+
                     // Complete Level
                     var levelInfo = levelGrid[playerPos.x, playerPos.y];
                     levelGrid[playerPos.x, playerPos.y].Completed = true;
@@ -189,8 +192,6 @@ public class LevelManager : MonoBehaviour
                     }
 
                     Player.FruitEntity.transform.position = levelInfo.Pos;
-
-                    KillAllBots();
 
                     StartTravelState();
                 }
@@ -251,11 +252,31 @@ public class LevelManager : MonoBehaviour
     private void SpawnBots()
     {
         // TODO: Add bots
+        var bots = UnityEngine.Random.Range(3, 5);
+        var levelInfo = levelGrid[playerPos.x, playerPos.y];
+
+        for (int i = 0; i < bots; i++)
+        {
+            var idx = UnityEngine.Random.Range(0, BotPrefabs.Length);
+
+            var pos = (Vector3)levelInfo.Pos + UnityEngine.Random.insideUnitSphere * 3f;
+
+            spawnedBots.Add(Instantiate(BotPrefabs[idx], pos, quaternion.identity, transform) as GameObject);
+        }
     }
 
     private void KillAllBots()
     {
         // TODO: Kill all bots
+        for (int i = 0; i < spawnedBots.Count; i++)
+        {
+            if (spawnedBots[i] != null)
+            {
+                spawnedBots[i].SetActive(false);
+                GameObject.Destroy(spawnedBots[i]);
+            }
+        }
+        spawnedBots.Clear();
     }
 
     private void GameOver(bool success)

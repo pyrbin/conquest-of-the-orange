@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2649638611168110594}
   m_LocalRotation: {x: -0, y: -0, z: 0.06560505, w: 0.9978457}
-  m_LocalPosition: {x: -0.261, y: 0.456, z: 0}
+  m_LocalPosition: {x: -0.015, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1358740530693095819}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 433258738f2e26543bbb35928cb93e95, type: 3}
   m_Color: {r: 1, g: 0.49803922, b: 0.15294118, a: 1}
   m_FlipX: 1
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 36a900ef860faca4197f72b96150b3ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebe2305475fe28489c27c8ec007a288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxFlagRotation: 35
 --- !u!114 &3640842827177181812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +301,7 @@ MonoBehaviour:
   minSlowingDistance: 1
   accDistanceFactor: 1
   slowingFactor: 1
+  maxVelocity: 15
   rigid: {fileID: 0}
 --- !u!114 &7418770084024443490
 MonoBehaviour:
@@ -314,8 +316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 7509893996516360874}
-  MaxRotation: 3
-  GrowthFactor: 0.5
+  MaxRotation: 4
+  GrowthFactor: 0.4
 --- !u!114 &4449334867395995025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,8 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 8333594469526891905}
   MinScale: 1
-  MaxScale: 3
-  GrowthFactor: 5
+  MaxScale: 4
+  GrowthFactor: 10
   Growth: 1
 --- !u!114 &8764369200995692577
 MonoBehaviour:
@@ -363,4 +365,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da3ee73d60dfb147a24b256935b1763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Threshold: 0.2
+  Threshold: 0.8

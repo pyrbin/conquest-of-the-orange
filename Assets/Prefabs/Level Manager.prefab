@@ -90,10 +90,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapPrefab: {fileID: 5969849710085866477, guid: f12dce2d44ce70e439ab82ad32c6c92b, type: 3}
+  BotPrefabs:
+  - {fileID: 1409632066913817738, guid: 15bb06e3fa34ca749b5b34df8806c5ad, type: 3}
+  - {fileID: 3379001021766778992, guid: 029456ffc7b919746a50bbcb2bbffa9a, type: 3}
+  - {fileID: 5552447119832807654, guid: f0d593773b8f7f34ebdf2d996b7c4053, type: 3}
   MainCamera: {fileID: 0}
   Player: {fileID: 0}
   MapXOffset: 14.5
   MapYOffset: -8
+  PlayerStart:
+    x: 1
+    y: 1
   CoverageWinPerc: 0.5
 --- !u!1 &8832752968652172102
 GameObject:

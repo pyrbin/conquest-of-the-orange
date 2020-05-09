@@ -25,6 +25,8 @@ public class FruitMovement : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rigid;
 
+    public float MaxSpeedPerc => rigid.velocity.magnitude / maxVelocity;
+
     // Use this for initialization
     private void Start()
     {
@@ -77,14 +79,13 @@ public class FruitMovement : MonoBehaviour
         {
             rigid.AddForce(currentMovementVector);
         }
-
     }
 
     private void Update()
     {
         if (rigid.velocity.magnitude > maxVelocity)
         {
-            rigid.velocity = rigid.velocity.normalized*maxVelocity;
+            rigid.velocity = rigid.velocity.normalized * maxVelocity;
         }
     }
 }

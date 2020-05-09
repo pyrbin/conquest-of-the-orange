@@ -95,49 +95,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4449334867395995025, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: MaxScale
-      value: 2
+    - target: {fileID: 6871824448256426895, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.022
       objectReference: {fileID: 0}
-    - target: {fileID: 4449334867395995025, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: GrowthFactor
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7418770084024443490, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: MaxRotation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7418770084024443490, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: GrowthFactor
-      value: 0.05
+    - target: {fileID: 6871824448256426895, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 8333594469526891905, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_Name
       value: FruitEntity
       objectReference: {fileID: 0}
-    - target: {fileID: 8333594469526891905, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: m_TagString
-      value: FruitEntity
-      objectReference: {fileID: 0}
-    - target: {fileID: 8764369200995692577, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: Surface
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8764369200995692577, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: PaintingData.Radius
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8764369200995692577, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: PaintingData.Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8764369200995692577, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: PaintingData.Color.g
-      value: 0.5921569
-      objectReference: {fileID: 0}
-    - target: {fileID: 8764369200995692577, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
-      propertyPath: PaintingData.Color.b
-      value: 0.13725491
+      value: 0.5803922
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
