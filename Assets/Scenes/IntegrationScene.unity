@@ -188,17 +188,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
-      propertyPath: CoverageWinPerc
-      value: 0.5
-      objectReference: {fileID: 0}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 1224131959}
     - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 336030892}
     - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
-      propertyPath: MainCamera
-      value: 
-      objectReference: {fileID: 1224131959}
+      propertyPath: CoverageWinPerc
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1999122708543614204, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
       propertyPath: m_Name
       value: Level Manager

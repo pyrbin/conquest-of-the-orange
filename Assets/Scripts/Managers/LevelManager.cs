@@ -28,6 +28,8 @@ public class LevelManager : MonoBehaviour
     [Header("Prefabs")]
     public GameObject MapPrefab;
 
+    public GameObject[] BotPrefabs;
+
     [Header("Refs")]
     public LevelCamera MainCamera;
 
@@ -172,18 +174,16 @@ public class LevelManager : MonoBehaviour
 
                     Game.Find().UIManager.SetLevelCompleted(levelInfo.Id);
 
-                    // Player.transform.position = levelInfo.Pos;
-
-                    KillAllBots();
-
                     if (levelsCompleted == GridSize * GridSize)
                     {
                         GameOver(true);
                     }
-                    else
-                    {
-                        StartTravelState();
-                    }
+
+                    Player.FruitEntity.transform.position = levelInfo.Pos;
+
+                    KillAllBots();
+
+                    StartTravelState();
                 }
                 break;
 
@@ -234,8 +234,7 @@ public class LevelManager : MonoBehaviour
 
         // Set new positions
         Map.transform.position = levelInfo.Pos;
-        // MainCamera.transform.position = levelInfo.Pos;
-        Player.transform.position = levelInfo.Pos;
+        Player.FruitEntity.transform.position = levelInfo.Pos;
 
         MapSurface.ClearSurface();
     }
@@ -253,5 +252,23 @@ public class LevelManager : MonoBehaviour
     private void GameOver(bool success)
     {
         Debug.Log("GameOver with status " + success);
+        if (success)
+        {
+            GoToVictoryScene();
+        }
+        else
+        {
+            GoToGameOverScene();
+        }
+    }
+
+    private void GoToVictoryScene()
+    {
+        transform.Find("ChangeToVictory").GetComponent<ChangeScene>().LoadScene();
+    }
+
+    private void GoToGameOverScene()
+    {
+        transform.Find("ChangeToGameOver").GetComponent<ChangeScene>().LoadScene();
     }
 }
