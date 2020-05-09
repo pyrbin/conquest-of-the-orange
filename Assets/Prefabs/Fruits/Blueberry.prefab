@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3379001021766778995}
+  - component: {fileID: 8846902817508156909}
   m_Layer: 0
   m_Name: Blueberry
   m_TagString: Bot
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8846902817508156909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379001021766778992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8993784f690f02b4b847a615b670fb9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3379001021403743600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,6 +99,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 8aa27439be3bcae4a833769c74e70ab0, type: 3}
+    - target: {fileID: 6871824448256426895, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871824448256426895, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 8333594469526891905, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_Name
       value: FruitEntity

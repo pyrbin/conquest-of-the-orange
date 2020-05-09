@@ -189,7 +189,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
       propertyPath: BotPrefabs.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
       propertyPath: MainCamera
@@ -201,8 +201,20 @@ PrefabInstance:
       objectReference: {fileID: 336030892}
     - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
       propertyPath: CoverageWinPerc
-      value: 0.15
+      value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
+      propertyPath: BotPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 8077320924051755515, guid: 0f72df899baeed94e84e4f80ef1b45e2, type: 3}
+    - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
+      propertyPath: BotPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 3794174189060646880, guid: 5c6ba3c0a8d2e8046b680bd8d2c8dc75, type: 3}
+    - target: {fileID: 1999122708543614202, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
+      propertyPath: BotPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 3644427336693608374, guid: 7611b014c0530ba41a0cf3e1f04163fe, type: 3}
     - target: {fileID: 1999122708543614204, guid: d0fd075c43704374da3ce00d416cdcfa, type: 3}
       propertyPath: m_Name
       value: Level Manager
@@ -426,6 +438,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2169395160260996318, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: MaxScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7783878015639297557, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: m_Name
       value: Player
@@ -474,9 +490,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7783878015719982502, guid: d59151ddb014d2846925717292dbc002, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: b66a5faf269854f47b7d168f9548ab7e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d59151ddb014d2846925717292dbc002, type: 3}

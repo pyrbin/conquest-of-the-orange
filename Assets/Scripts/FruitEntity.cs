@@ -8,6 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Painter))]
 public class FruitEntity : MonoBehaviour
 {
+    public float MaxFlagRotation = 65;
     public FruitMovement Movement { get; private set; }
     public RotateWithVelocity Rotator { get; private set; }
     public GrowWithVelocity Grower { get; private set; }
@@ -16,6 +17,8 @@ public class FruitEntity : MonoBehaviour
     public SpriteRenderer Flag { get; private set; }
 
     public Color Color => Painter.PaintingData.Color;
+
+    private float flagStartRot = 0f;
 
     // Start is called before the first frame update
     private void Awake()
@@ -27,16 +30,29 @@ public class FruitEntity : MonoBehaviour
 
         Flag = transform.Find("Body/Flag").GetComponent<SpriteRenderer>();
         Flag.color = Color;
+        flagStartRot = Flag.transform.rotation.z;
     }
 
     // Update is called once per frame
     private void Update()
     {
         Painter.RadiusMult = Grower.Target.transform.localScale.x;
+
+        if (Movement.rigid.velocity.x > 0)
+        {
+            Flag.flipX = true;
+            Flag.transform.rotation = Quaternion.Euler(0, 0, flagStartRot + (Movement.MaxSpeedPerc * MaxFlagRotation));
+        }
+        else
+        {
+            Flag.flipX = false;
+            Flag.transform.rotation = Quaternion.Euler(0, 0, flagStartRot - (Movement.MaxSpeedPerc * MaxFlagRotation));
+        }
     }
 
     public void OnSquish()
     {
-        Destroy(this.gameObject);
+        Destroy(transform.parent.gameObject);
+        Game.Find().LevelManager.MainCamera.ShakeCamera(0.55f, 0.8f);
     }
 }
