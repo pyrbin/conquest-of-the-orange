@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 public class PredeterminedController : MonoBehaviour
 {
     public FruitEntity FruitEntity { get; private set; }
-    public List<Vector2> points;
+    public float GoalDistance = 1f;
+    public List<Vector2> Points;
 
     [HideInInspector]
     public Vector3 TargetPos { get; private set; }
@@ -19,19 +20,17 @@ public class PredeterminedController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-;
 
-        if (points == null || points.Count == 0)
+        if (Points == null || Points.Count == 0)
         {
-            print("lmao");
-            points.Add(new Vector2(-8, -4));
-            points.Add(new Vector2(8, -4));
-            points.Add(new Vector2(8, 4));
-            points.Add(new Vector2(-8, 4));
-            points.Add(new Vector2(0, 0));
+            Points.Add(new Vector2(-8, -4));
+            Points.Add(new Vector2(8, -4));
+            Points.Add(new Vector2(8, 4));
+            Points.Add(new Vector2(-8, 4));
+            Points.Add(new Vector2(0, 0));
         }
    
-        foreach (Vector2 point in points)
+        foreach (Vector2 point in Points)
         {
             if (math.abs(point.x) > width)
                 print("Absolute value of x must be less than " + width);
@@ -39,37 +38,30 @@ public class PredeterminedController : MonoBehaviour
                 print("Absolute value of y must be less than " + height);
         }
 
+
+        index = Random.Range(0, Points.Count);
         TargetPos = getNewPosition();
         FruitEntity = GetComponentInChildren<FruitEntity>();
+
 
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if ((FruitEntity.transform.position - TargetPos).magnitude < 2)
+        print((FruitEntity.transform.position - TargetPos).magnitude);
+        if ((FruitEntity.transform.position - TargetPos).magnitude < GoalDistance)
             TargetPos = getNewPosition();
         FruitEntity.Movement.MoveTo(TargetPos);
     }
 
     private Vector2 getNewPosition()
     {
+        LevelInfo levelInfo = Game.Find().LevelManager.GetCurrentLevel();
         index++;
-        return points[index % points.Count];
-    }
-
-    private float2 levelXBounds()
-    {
-        LevelInfo levelInfo = Game.Find().LevelManager.GetCurrentLevel();
-
-        return new Vector2((levelInfo.Pos.x - width), (levelInfo.Pos.x + width));
-    }
-
-    private float2 levelYBounds()
-    {
-        LevelInfo levelInfo = Game.Find().LevelManager.GetCurrentLevel();
-
-        return new Vector2((levelInfo.Pos.y - height), (levelInfo.Pos.y + height));
+        Vector2 relativePoint = Points[index % Points.Count];
+        Vector2 point = new Vector2(relativePoint.x + levelInfo.Pos.x, relativePoint.y + levelInfo.Pos.y);
+        return point;
     }
 
 }
