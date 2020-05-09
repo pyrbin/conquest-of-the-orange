@@ -6,15 +6,13 @@
 
 <br>
 
-## Title
+## Theme: Orange Expansion
 
-THEME: Orange Expansion
-
-## DESCRIPTION:
+## Description:
 
 You play as an orange, competing with the other fruits on the farm for fertile land. Be first to conquer 9 fields to win the game.
 
-## CONTROLS:
+## Controls:
 
 Move your mouse to steer your orange. The faster you move the bigger you get. If you are big enough compared to another fruit you can smash it by running it over. Plays kinda like agar.io.
 
