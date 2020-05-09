@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
     public enum SoundType
     {
         LEVEL_CLEARED,
@@ -26,6 +25,7 @@ public class AudioManager : MonoBehaviour
 
     // Sound effects
     public GameObject LevelCleared;
+
     public GameObject Rolling;
     public GameObject Bounces;
     public GameObject Squishes;
@@ -40,6 +40,7 @@ public class AudioManager : MonoBehaviour
 
     // Tracks
     public GameObject Lost;
+
     public GameObject Win;
     public GameObject Menu;
     public GameObject Gameplay;
@@ -60,7 +61,7 @@ public class AudioManager : MonoBehaviour
     private static AudioManager Instance;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         ALevelCleared = LevelCleared.GetComponent<AudioSource>();
         ARoll = Rolling.GetComponent<AudioSource>();
@@ -76,9 +77,8 @@ public class AudioManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 
     public void PlayTrack(TrackType soundType)
@@ -100,12 +100,15 @@ public class AudioManager : MonoBehaviour
             case TrackType.LOST:
                 trackAudioSource = ALost;
                 break;
+
             case TrackType.WIN:
                 trackAudioSource = AWin;
                 break;
+
             case TrackType.MENU:
                 trackAudioSource = AMenu;
                 break;
+
             case TrackType.GAMEPLAY:
                 trackAudioSource = AGameplay;
                 break;
@@ -138,14 +141,19 @@ public class AudioManager : MonoBehaviour
         {
             case SoundType.LEVEL_CLEARED:
                 return ALevelCleared;
+
             case SoundType.BOUNCE:
                 return ABounce;
+
             case SoundType.ROLL:
                 return ARoll;
+
             case SoundType.SQUISH:
                 return ASquishes;
+
             case SoundType.CLOCK:
                 return AClock;
+
             case SoundType.KILL:
                 return AKill;
         }

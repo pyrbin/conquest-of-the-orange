@@ -155,13 +155,25 @@ public class LevelManager : MonoBehaviour
 
         mapTimer.Elapsed +=
             //This function decreases BoomDown every second
-            (object sender, System.Timers.ElapsedEventArgs e) => Countdown--;
+            (object sender, System.Timers.ElapsedEventArgs e) =>
+            {
+                Countdown--;
+                if (GameState == State.Play && Countdown <= 3)
+                {
+                    AudioManager.Find().PlaySound(AudioManager.SoundType.CLOCK);
+                }
+            };
 
         PopulateGrid();
 
         Game.Find().UIManager.SetCurrentLevel(levelGrid[playerPos.x, playerPos.y].Id);
 
         StartPlayState();
+    }
+
+    public void OnDisable()
+    {
+        mapTimer.Stop();
     }
 
     public void PlayerTravelInDirection(MapLevel.MoveDirection dir)
@@ -253,6 +265,8 @@ public class LevelManager : MonoBehaviour
         Game.Find().UIManager.SetClockActive(false);
 
         GameState = State.Travel;
+
+        AudioManager.Find().PlaySound(AudioManager.SoundType.LEVEL_CLEARED);
 
         AvailableNeighbourLevels(out var available);
 
