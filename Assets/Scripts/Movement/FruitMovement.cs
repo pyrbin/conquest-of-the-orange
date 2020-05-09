@@ -60,18 +60,18 @@ public class FruitMovement : MonoBehaviour
         Vector2 distanceToEndPoint = transform.position - currentPointToMoveTo;
 
         // Add acceleration
-        float acceleration = minAcceleration + accDistanceFactor*math.pow(distanceToEndPoint.magnitude, 1.25f)/3;
+        float acceleration = minAcceleration + accDistanceFactor * math.pow(distanceToEndPoint.magnitude, 1.25f) / 3;
         currentMovementVector *= acceleration;
 
         // Add steering
         currentMovementVector = currentMovementVector - rigid.velocity;
 
-        if (distanceToEndPoint.magnitude < minSlowingDistance + rigid.velocity.magnitude*0.2f*slowingFactor)
+        if (distanceToEndPoint.magnitude < minSlowingDistance + rigid.velocity.magnitude * 0.2f * slowingFactor)
         {
             rigid.velocity *= 0.99f;
-        } else
+        }
+        else
         {
-            print(rigid.velocity.magnitude);
             rigid.AddForce(currentMovementVector);
         }
     }

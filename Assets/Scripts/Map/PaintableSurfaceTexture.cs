@@ -52,6 +52,11 @@ public class PaintableSurfaceTexture : MonoBehaviour
         ApplyPixelArray(resetColorArray);
     }
 
+    public Color32[] Pixels32()
+    {
+        return texture.GetPixels32();
+    }
+
     public float PaintCoverage(Color color)
     {
         var pixels = texture.GetPixels32();
