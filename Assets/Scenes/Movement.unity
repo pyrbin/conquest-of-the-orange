@@ -152,7 +152,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 161796362}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b66a5faf269854f47b7d168f9548ab7e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161796362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bd124f38bbabee4d83e6fbfde4d826e, type: 3}
   m_Name: 
@@ -265,6 +265,79 @@ MonoBehaviour:
   ActivateDebug: 1
   DebugPaintSize: 20
   DebugPaintColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1001 &1319438223
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842689, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842718, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: xMin
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842718, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: xMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842718, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: yMin
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842718, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: yMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767373633843842719, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
+      propertyPath: m_Name
+      value: Bot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59aba6c628681e8418c7a153f9d8dbea, type: 3}
 --- !u!1001 &1967182587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,11 +404,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1234782723982740283, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: acceleration
-      value: 0.01
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1234782723982740283, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: speed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234782723982740283, guid: d59151ddb014d2846925717292dbc002, type: 3}
+      propertyPath: accelerationDistanceFactor
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7783878015639297557, guid: d59151ddb014d2846925717292dbc002, type: 3}
       propertyPath: m_Name

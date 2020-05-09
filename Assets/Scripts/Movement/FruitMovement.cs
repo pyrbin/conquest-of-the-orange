@@ -20,7 +20,8 @@ public class FruitMovement : MonoBehaviour
     public float accDistanceFactor = 1f;
     public float slowingFactor = 1f;
 
-    private Rigidbody2D rigid;
+    [HideInInspector]
+    public Rigidbody2D rigid;
 
     // Use this for initialization
     private void Start()
@@ -71,8 +72,12 @@ public class FruitMovement : MonoBehaviour
             rigid.velocity *= 0.99f;
         } else
         {
-            print(rigid.velocity.magnitude);
             rigid.AddForce(currentMovementVector);
         }
+    }
+
+    public float VelocityMagnitude()
+    {
+        return rigid.velocity.magnitude;
     }
 }

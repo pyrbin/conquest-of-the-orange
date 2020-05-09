@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BotController : MonoBehaviour
+public class RandomController : MonoBehaviour
 {
     public FruitEntity FruitEntity { get; private set; }
 
@@ -15,6 +15,7 @@ public class BotController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        TargetPos = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
         FruitEntity = GetComponentInChildren<FruitEntity>();
     }
 
