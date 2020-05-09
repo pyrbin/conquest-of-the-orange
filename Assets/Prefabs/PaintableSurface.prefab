@@ -48,7 +48,7 @@ MonoBehaviour:
   DrawingLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  DefaultTexture: {fileID: 2800000, guid: 906958613c505b043bf1f724c2699bcd, type: 3}
   ActivateDebug: 1
   DebugPaintSize: 20
   DebugPaintColor: {r: 1, g: 0, b: 0.8916426, a: 1}
@@ -120,7 +120,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 14.545455, y: 8.181818}
     newSize: {x: 16.05, y: 8.67}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

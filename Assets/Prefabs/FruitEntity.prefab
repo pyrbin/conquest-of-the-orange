@@ -330,8 +330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 8333594469526891905}
   MinScale: 1
-  MaxScale: 3
-  GrowthFactor: 5
+  MaxScale: 4
+  GrowthFactor: 15
 --- !u!114 &8764369200995692577
 MonoBehaviour:
   m_ObjectHideFlags: 0

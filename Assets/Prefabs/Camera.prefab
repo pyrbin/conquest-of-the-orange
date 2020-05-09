@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1091993058661439857}
+  - component: {fileID: 3905942392920600557}
+  - component: {fileID: 6714693429534473927}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -31,6 +33,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3905942392920600557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091993058661439870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5900d509dfa07fd4983ce5fae4753309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  Smooth: 5
+--- !u!111 &6714693429534473927
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091993058661439870}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cb5e3df589413ae4ea27e11e0e839c81, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cb5e3df589413ae4ea27e11e0e839c81, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1091993059295880450
 GameObject:
   m_ObjectHideFlags: 0

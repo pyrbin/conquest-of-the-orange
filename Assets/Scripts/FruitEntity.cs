@@ -13,6 +13,8 @@ public class FruitEntity : MonoBehaviour
     public GrowWithVelocity Grower { get; private set; }
     public Painter Painter { get; private set; }
 
+    public Color Color => Painter.PaintingData.Color;
+
     // Start is called before the first frame update
     private void Awake()
     {

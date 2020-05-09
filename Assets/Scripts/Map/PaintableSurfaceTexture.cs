@@ -25,7 +25,7 @@ public class PaintableSurfaceTexture : MonoBehaviour
     [Header("Surface Settings")]
     public LayerMask DrawingLayers;
 
-    public Color DefaultColor = Color.white;
+    public Texture2D DefaultTexture;
 
     [Header("Debug Settings")]
     public bool ActivateDebug = true;
@@ -34,7 +34,7 @@ public class PaintableSurfaceTexture : MonoBehaviour
     public Color DebugPaintColor = Color.red;
 
     private Sprite sprite;
-    private Color[] resetColorArray;
+    private Color32[] resetColorArray;
 
     private Texture2D texture => sprite.texture;
     private float spriteWidth => sprite.rect.width;
@@ -45,6 +45,11 @@ public class PaintableSurfaceTexture : MonoBehaviour
     {
         PaintCircle(WorldToPixelPos(data.WorldPos), data.Radius, data.Color, out var toPaint);
         ApplyPixelArray(toPaint);
+    }
+
+    public void ClearSurface()
+    {
+        ApplyPixelArray(resetColorArray);
     }
 
     public float PaintCoverage(Color color)
@@ -89,17 +94,14 @@ public class PaintableSurfaceTexture : MonoBehaviour
         return a.r == b.r && a.g == b.g && a.b == b.b;
     }
 
-    private void Start()
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>().sprite;
 
         // Initialize clean pixels to use
-        resetColorArray = new Color[(int)sprite.rect.width * (int)sprite.rect.height];
+        resetColorArray = (Color32[])DefaultTexture.GetPixels32().Clone();
 
-        for (int x = 0; x < resetColorArray.Length; x++)
-            resetColorArray[x] = DefaultColor;
-
-        ApplyPixelArray(resetColorArray);
+        ClearSurface();
     }
 
     // This is where the magic happens. Detects when user is left clicking, which then call the
