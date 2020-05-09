@@ -21,7 +21,7 @@ public class RandomController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if ((FruitEntity.transform.position - TargetPos).magnitude < 2)
+        if ((FruitEntity.transform.position - TargetPos).magnitude < 5)
             TargetPos = getNewPosition();
         FruitEntity.Movement.MoveTo(TargetPos);
     }
