@@ -17,7 +17,8 @@ public class FruitMovement : MonoBehaviour
     public float minAcceleration = 5f;
     public float minSlowingDistance = 1f;
 
-    public bool slowed = false;
+    public float accDistanceFactor = 1f;
+    public float slowingFactor = 1f;
 
     private Rigidbody2D rigid;
 
@@ -59,13 +60,13 @@ public class FruitMovement : MonoBehaviour
         Vector2 distanceToEndPoint = transform.position - currentPointToMoveTo;
 
         // Add acceleration
-        float acceleration = minAcceleration + math.pow(distanceToEndPoint.magnitude, 1.25f)/3;
+        float acceleration = minAcceleration + accDistanceFactor*math.pow(distanceToEndPoint.magnitude, 1.25f)/3;
         currentMovementVector *= acceleration;
 
         // Add steering
         currentMovementVector = currentMovementVector - rigid.velocity;
 
-        if (distanceToEndPoint.magnitude < minSlowingDistance + rigid.velocity.magnitude*0.2f)
+        if (distanceToEndPoint.magnitude < minSlowingDistance + rigid.velocity.magnitude*0.2f*slowingFactor)
         {
             rigid.velocity *= 0.99f;
         } else
