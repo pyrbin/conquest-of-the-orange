@@ -13,7 +13,9 @@ public class AudioManager : MonoBehaviour
         SQUISH,
         MENU_CLICK,
         CLOCK,
-        KILL
+        KILL,
+        HIT_FRUIT,
+        LEVEL_TRANSITION
     }
 
     public enum TrackType
@@ -31,12 +33,16 @@ public class AudioManager : MonoBehaviour
     public GameObject Squishes;
     public GameObject Clock;
     public GameObject Kill;
+    public GameObject HitFruit;
+    public GameObject LevelTransition;
     private AudioSource ALevelCleared;
     private AudioSource ARoll;
     private AudioSource ABounce;
     private AudioSource ASquishes;
     private AudioSource AClock;
     private AudioSource AKill;
+    private AudioSource AHitFruit;
+    private AudioSource ALevelTransition;
 
     // Tracks
     public GameObject Lost;
@@ -68,6 +74,9 @@ public class AudioManager : MonoBehaviour
         ASquishes = Squishes.GetComponent<AudioSource>();
         AClock = Clock.GetComponent<AudioSource>();
         AKill = Kill.GetComponent<AudioSource>();
+        AHitFruit = HitFruit.GetComponent<AudioSource>();
+        ALevelTransition = LevelTransition.GetComponent<AudioSource>();
+
 
         ALost = Lost.GetComponent<AudioSource>();
         AWin = Win.GetComponent<AudioSource>();
@@ -148,6 +157,10 @@ public class AudioManager : MonoBehaviour
                 return AClock;
             case SoundType.KILL:
                 return AKill;
+            case SoundType.HIT_FRUIT:
+                return AHitFruit;
+            case SoundType.LEVEL_TRANSITION:
+                return ALevelTransition;
         }
         return null;
     }
