@@ -172,7 +172,7 @@ public class LevelManager : MonoBehaviour
 
                     Game.Find().UIManager.SetLevelCompleted(levelInfo.Id);
 
-                    Player.transform.position = levelInfo.Pos;
+                    // Player.transform.position = levelInfo.Pos;
 
                     KillAllBots();
 
