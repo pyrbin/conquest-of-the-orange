@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapPrefab: {fileID: 5969849710085866477, guid: f12dce2d44ce70e439ab82ad32c6c92b, type: 3}
+  MainCamera: {fileID: 0}
   Player: {fileID: 0}
-  Level: 1
   MapXOffset: 14.5
   MapYOffset: -8
-  CoverageWinPerc: 0.1
+  CoverageWinPerc: 0.25
