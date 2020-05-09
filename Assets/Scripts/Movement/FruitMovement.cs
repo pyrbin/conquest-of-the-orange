@@ -14,14 +14,11 @@ public class FruitMovement : MonoBehaviour
     private Vector3 currentPointToMoveTo;
     private Transform cachedTransform;
 
-    public float speed = 0.0f;
+    public float minAcceleration = 5f;
+    public float minSlowingDistance = 1f;
 
-    public float lastSpeed = 0.0f;
-    public float acceleration = 0.01f;
-    public float maxSpeed = 10.0f;
-    public int slowingDistance = 1;
-
-    public bool slowed = false;
+    public float accDistanceFactor = 1f;
+    public float slowingFactor = 1f;
 
     private Rigidbody2D rigid;
 
@@ -62,20 +59,20 @@ public class FruitMovement : MonoBehaviour
 
         Vector2 distanceToEndPoint = transform.position - currentPointToMoveTo;
 
-        if (distanceToEndPoint.magnitude < slowingDistance)
+        // Add acceleration
+        float acceleration = minAcceleration + accDistanceFactor*math.pow(distanceToEndPoint.magnitude, 1.25f)/3;
+        currentMovementVector *= acceleration;
+
+        // Add steering
+        currentMovementVector = currentMovementVector - rigid.velocity;
+
+        if (distanceToEndPoint.magnitude < minSlowingDistance + rigid.velocity.magnitude*0.2f*slowingFactor)
         {
-            rigid.velocity *= 0.98f;
+            rigid.velocity *= 0.99f;
         } else
         {
-            rigid.velocity += currentMovementVector * acceleration * Time.deltaTime;
+            print(rigid.velocity.magnitude);
+            rigid.AddForce(currentMovementVector);
         }
-
-
-
-    }
-
-    public void Bounce(int force)
-    {
-        
     }
 }
