@@ -44,6 +44,7 @@ public class AudioManager : MonoBehaviour
     public GameObject Win;
     public GameObject Menu;
     public GameObject Gameplay;
+
     private AudioSource ALost;
     private AudioSource AWin;
     private AudioSource AMenu;
@@ -61,7 +62,7 @@ public class AudioManager : MonoBehaviour
     private static AudioManager Instance;
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         ALevelCleared = LevelCleared.GetComponent<AudioSource>();
         ARoll = Rolling.GetComponent<AudioSource>();
@@ -74,6 +75,8 @@ public class AudioManager : MonoBehaviour
         AWin = Win.GetComponent<AudioSource>();
         AMenu = Menu.GetComponent<AudioSource>();
         AGameplay = Gameplay.GetComponent<AudioSource>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -83,13 +86,16 @@ public class AudioManager : MonoBehaviour
 
     public void PlayTrack(TrackType soundType)
     {
-        // Stop any playing tracks
+        //Stop any playing tracks
+
         List<AudioSource> tracks = new List<AudioSource>();
+
         tracks.Add(ALost);
         tracks.Add(AWin);
         tracks.Add(AMenu);
         tracks.Add(AGameplay);
-        foreach (AudioSource track in tracks) {
+        foreach (AudioSource track in tracks)
+        {
             track.Stop();
         }
 
@@ -162,6 +168,6 @@ public class AudioManager : MonoBehaviour
 
     private AudioClip randomAudioClip(List<AudioClip> list)
     {
-        return list[Random.Range(0, list.Count-1)];
+        return list[Random.Range(0, list.Count - 1)];
     }
 }

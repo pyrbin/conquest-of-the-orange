@@ -27,7 +27,6 @@ public class Squishes : MonoBehaviour
             AudioManager.Find().PlayOneShotSound(AudioManager.SoundType.BOUNCE);
             return;
         }
-           
 
         FruitEntity otherFruitEntity = collision.gameObject.GetComponent<FruitEntity>();
 
@@ -38,6 +37,10 @@ public class Squishes : MonoBehaviour
         else if (otherFruitEntity.Squishes.Eatable(fruitEntity))
         {
             fruitEntity.OnSquish();
+        }
+        else
+        {
+            AudioManager.Find().PlayTrack(AudioManager.SoundType.HIT_FRUIT);
         }
     }
 }

@@ -151,6 +151,8 @@ public class LevelManager : MonoBehaviour
 
         MainCamera.Target = Map.transform;
 
+        AudioManager.Find().PlayTrack(AudioManager.TrackType.GAMEPLAY);
+
         mapTimer = new System.Timers.Timer(1000);
 
         mapTimer.Elapsed +=
@@ -180,6 +182,8 @@ public class LevelManager : MonoBehaviour
     {
         if (GameState == State.Travel)
         {
+            AudioManager.Find().PlayTrack(AudioManager.SoundType.LEVEL_TRANSITION);
+
             playerMove = MapLevel.GetMoveDirOffset(dir);
 
             MoveToNextLevel();
@@ -364,12 +368,14 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator GoToVictoryScene()
     {
+        AudioManager.Find().PlayTrack(AudioManager.TrackType.WIN);
         yield return new WaitForSeconds(1.0f);
         transform.Find("ChangeToVictory").GetComponent<ChangeScene>().LoadScene();
     }
 
     private IEnumerator GoToGameOverScene()
     {
+        AudioManager.Find().PlayTrack(AudioManager.TrackType.LOST);
         yield return new WaitForSeconds(1.0f);
         transform.Find("ChangeToGameOver").GetComponent<ChangeScene>().LoadScene();
     }
