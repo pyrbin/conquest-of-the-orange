@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1095445383150344394}
   - component: {fileID: 1095445383150344395}
   - component: {fileID: 1095445383150344437}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PaintableSurface
   m_TagString: MainSurface
   m_Icon: {fileID: 0}

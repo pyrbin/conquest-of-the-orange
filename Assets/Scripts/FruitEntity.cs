@@ -29,4 +29,10 @@ public class FruitEntity : MonoBehaviour
     {
         Painter.RadiusMult = Grower.Target.transform.localScale.x;
     }
+
+    public void OnSquish()
+    {
+    
+        Destroy(this.gameObject);
+    }
 }

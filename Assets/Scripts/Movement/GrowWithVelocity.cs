@@ -12,6 +12,10 @@ public class GrowWithVelocity : MonoBehaviour
     public float MaxScale = 3;
     public float GrowthFactor = 5;
 
+
+    [HideInInspector]
+    public float Growth = 1f;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -21,11 +25,11 @@ public class GrowWithVelocity : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        float growtFactor = MinScale + rigid.velocity.magnitude / GrowthFactor;
+        Growth = MinScale + rigid.velocity.magnitude / GrowthFactor;
 
-        if (growtFactor > MaxScale)
-            growtFactor = MaxScale;
+        if (Growth > MaxScale)
+            Growth = MaxScale;
 
-        Target.transform.localScale = new Vector3(growtFactor, growtFactor, growtFactor);
+        Target.transform.localScale = new Vector3(Growth, Growth, Growth);
     }
 }
