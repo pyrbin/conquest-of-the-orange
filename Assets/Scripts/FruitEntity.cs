@@ -13,6 +13,7 @@ public class FruitEntity : MonoBehaviour
     public RotateWithVelocity Rotator { get; private set; }
     public GrowWithVelocity Grower { get; private set; }
     public Painter Painter { get; private set; }
+    public Squishes Squishes { get; private set; }
 
     public SpriteRenderer Flag { get; private set; }
 
@@ -27,6 +28,7 @@ public class FruitEntity : MonoBehaviour
         Rotator = GetComponent<RotateWithVelocity>();
         Grower = GetComponent<GrowWithVelocity>();
         Painter = GetComponent<Painter>();
+        Squishes = GetComponent<Squishes>();
 
         Flag = transform.Find("Body/Flag").GetComponent<SpriteRenderer>();
         Flag.color = Color;
@@ -48,6 +50,17 @@ public class FruitEntity : MonoBehaviour
             Flag.flipX = false;
             Flag.transform.rotation = Quaternion.Euler(0, 0, flagStartRot - (Movement.MaxSpeedPerc * MaxFlagRotation));
         }
+    }
+
+    public void DisplaySquishIndicator(bool dangerous)
+    {
+        transform.Find("Body/Indicator").gameObject.SetActive(true);
+        transform.Find("Body/Indicator").GetComponent<SpriteRenderer>().color = dangerous ? Color.red : Color.green;
+    }
+
+    public void HideSquishIndicator()
+    {
+        transform.Find("Body/Indicator").gameObject.SetActive(false);
     }
 
     public void OnSquish()

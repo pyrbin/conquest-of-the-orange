@@ -173,6 +173,27 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case State.Play:
+
+                foreach (var bot in spawnedBots)
+                {
+                    if (bot == null) continue;
+
+                    var other = bot.GetComponentInChildren<FruitEntity>();
+
+                    if (Player.FruitEntity.Squishes.Eatable(other))
+                    {
+                        other.DisplaySquishIndicator(false);
+                    }
+                    else if (other.Squishes.Eatable(Player.FruitEntity))
+                    {
+                        other.DisplaySquishIndicator(true);
+                    }
+                    else
+                    {
+                        other.HideSquishIndicator();
+                    }
+                }
+
                 PlayerCoverage = MapSurface.PaintCoverage(Player.FruitEntity.Color);
                 // Player has enough coverage
                 if (PlayerCoverage >= CoverageWinPerc)
@@ -259,7 +280,7 @@ public class LevelManager : MonoBehaviour
         {
             var idx = UnityEngine.Random.Range(0, BotPrefabs.Length);
 
-            var pos = (Vector3)levelInfo.Pos + UnityEngine.Random.insideUnitSphere * 3f;
+            var pos = (Vector3)levelInfo.Pos + UnityEngine.Random.insideUnitSphere * 4f;
 
             spawnedBots.Add(Instantiate(BotPrefabs[idx], pos, quaternion.identity, transform) as GameObject);
         }

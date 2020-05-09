@@ -8,32 +8,31 @@ public class Squishes : MonoBehaviour
     public float Threshold = 0.1f;
     private FruitEntity fruitEntity;
 
-    // Start is called before the first frame update
-    void Start()
+    public bool Eatable(FruitEntity other)
+    {
+        if (other == null || fruitEntity == null) return false;
+        return (fruitEntity.Grower.Growth - other.Grower.Growth > other.Squishes.Threshold);
+    }
+
+    private void Awake()
     {
         fruitEntity = GetComponent<FruitEntity>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag != "FruitEntity")
             return;
 
         FruitEntity otherFruitEntity = collision.gameObject.GetComponent<FruitEntity>();
-        Squishes otherSquishy = otherFruitEntity.gameObject.GetComponent<Squishes>();
 
-
-        if (fruitEntity.Grower.Growth - otherFruitEntity.Grower.Growth > otherSquishy.Threshold)
+        if (Eatable(otherFruitEntity))
         {
             otherFruitEntity.OnSquish();
         }
-
-
-        if (otherFruitEntity.Grower.Growth - fruitEntity.Grower.Growth > Threshold)
+        else if (otherFruitEntity.Squishes.Eatable(fruitEntity))
         {
             fruitEntity.OnSquish();
         }
-
-
     }
 }

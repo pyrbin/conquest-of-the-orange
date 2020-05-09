@@ -97,10 +97,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2020658288813200233, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020658288813200233, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.009
+      objectReference: {fileID: 0}
     - target: {fileID: 4381612165925224237, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 8eb588fe57414784eaf2a7df9d2ad428, type: 3}
+    - target: {fileID: 4462492605097021771, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6871824448256426895, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.009
@@ -112,6 +124,10 @@ PrefabInstance:
     - target: {fileID: 8333594469526891905, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_Name
       value: FruitEntity
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333594469526891905, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8764369200995692577, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: PaintingData.Color.r
