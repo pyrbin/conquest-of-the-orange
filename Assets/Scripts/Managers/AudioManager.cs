@@ -103,13 +103,16 @@ public class AudioManager : MonoBehaviour
         tracks.Add(AWin);
         tracks.Add(AMenu);
         tracks.Add(AGameplay);
+
         foreach (AudioSource track in tracks)
         {
-            track.Stop();
+            if (track)
+                track.Stop();
         }
 
         // Play the new track
         AudioSource trackAudioSource = null;
+
         switch (soundType)
         {
             case TrackType.LOST:
@@ -128,7 +131,9 @@ public class AudioManager : MonoBehaviour
                 trackAudioSource = AGameplay;
                 break;
         }
+
         trackAudioSource.Play();
+        
     }
 
     public void PlaySound(SoundType soundType)

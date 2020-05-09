@@ -182,7 +182,7 @@ public class LevelManager : MonoBehaviour
     {
         if (GameState == State.Travel)
         {
-            AudioManager.Find().PlayTrack(AudioManager.SoundType.LEVEL_TRANSITION);
+            AudioManager.Find().PlaySound(AudioManager.SoundType.LEVEL_TRANSITION);
 
             playerMove = MapLevel.GetMoveDirOffset(dir);
 

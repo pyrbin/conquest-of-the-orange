@@ -40,7 +40,7 @@ public class Squishes : MonoBehaviour
         }
         else
         {
-            AudioManager.Find().PlayTrack(AudioManager.SoundType.HIT_FRUIT);
+            AudioManager.Find().PlaySound(AudioManager.SoundType.HIT_FRUIT);
         }
     }
 }
