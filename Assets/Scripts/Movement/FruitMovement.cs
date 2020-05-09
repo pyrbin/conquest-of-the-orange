@@ -6,7 +6,7 @@ using Unity.Mathematics;
 [RequireComponent(typeof(Rigidbody2D))]
 public class FruitMovement : MonoBehaviour
 {
-    private Vector3 currentMovementVector;
+    private Vector2 currentMovementVector;
 
     // private Vector3 clickScreenPosition;
     private Vector3 clickWorldPosition;
@@ -17,7 +17,7 @@ public class FruitMovement : MonoBehaviour
     public float speed = 0.0f;
 
     public float lastSpeed = 0.0f;
-    public float acceleration = 3f;
+    public float acceleration = 0.01f;
     public float maxSpeed = 10.0f;
     public int slowingDistance = 1;
 
@@ -42,7 +42,7 @@ public class FruitMovement : MonoBehaviour
         currentPointToMoveTo.z = 0;
 
         // Calculate the current vector between the player position and the click
-        Vector3 currentPlayerPosition = cachedTransform.position;
+        Vector2 currentPlayerPosition = cachedTransform.position;
 
         // Find the angle (in radians) between the two positions (player position and click position)
         float angle = Mathf.Atan2(clickWorldPosition.y - currentPlayerPosition.y, clickWorldPosition.x - currentPlayerPosition.x);
@@ -62,33 +62,20 @@ public class FruitMovement : MonoBehaviour
 
         Vector2 distanceToEndPoint = transform.position - currentPointToMoveTo;
 
-        if (distanceToEndPoint.magnitude < 0.05)
+        if (distanceToEndPoint.magnitude < slowingDistance)
         {
-            speed = 0.0f;
-        }
-        else if (distanceToEndPoint.magnitude < slowingDistance)
+            rigid.velocity *= 0.98f;
+        } else
         {
-            speed *= 0.98f;
-        }
-        else
-        {
-            speed += currentMovementVector.magnitude * acceleration * Time.deltaTime;
+            rigid.velocity += currentMovementVector * acceleration * Time.deltaTime;
         }
 
-        // If the velocity is above the allowed limit, normalize it and keep it at a constant max
-        // speed when moving (instead of uniformly accelerating)
-        Vector2 accelerationVector = currentMovementVector * speed;
 
-        // If the velocity is above the allowed limit, normalize it and keep it at a constant max
-        // speed when moving (instead of uniformly accelerating)
-        if (accelerationVector.magnitude >= (maxSpeed))
-        {
-            accelerationVector.Normalize();
-            accelerationVector *= maxSpeed;
-            speed = maxSpeed;
-        }
 
-        // Apply velocity to gameobject position
-        rigid.velocity = accelerationVector;
+    }
+
+    public void Bounce(int force)
+    {
+        
     }
 }
