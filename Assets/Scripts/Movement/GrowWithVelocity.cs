@@ -13,6 +13,9 @@ public class GrowWithVelocity : MonoBehaviour
     public float GrowthFactor = 5;
 
 
+    public float degrowthCooldown = 1;
+
+
     [HideInInspector]
     public float Growth = 1f;
 
@@ -29,6 +32,9 @@ public class GrowWithVelocity : MonoBehaviour
 
         if (Growth > MaxScale)
             Growth = MaxScale;
+
+        if (Growth < MinScale)
+            Growth = MinScale;
 
         Target.transform.localScale = new Vector3(Growth, Growth, Growth);
     }

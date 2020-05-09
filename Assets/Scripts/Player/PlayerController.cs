@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (FruitEntity.Movement.rigid.velocity.magnitude > 1f)
+            Game.Find().AudioManager.PlaySound(AudioManager.SoundType.ROLL);
+        if (FruitEntity.Movement.rigid.velocity.magnitude < 1f)
+            Game.Find().AudioManager.StopSound(AudioManager.SoundType.ROLL);
+
         UpdateMousePos();
 
         FruitEntity.Movement.MoveTo(WorldMousePos);

@@ -23,7 +23,11 @@ public class Squishes : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag != "FruitEntity")
+        {
+            Game.Find().AudioManager.PlayOneShotSound(AudioManager.SoundType.BOUNCE);
             return;
+        }
+           
 
         FruitEntity otherFruitEntity = collision.gameObject.GetComponent<FruitEntity>();
 
