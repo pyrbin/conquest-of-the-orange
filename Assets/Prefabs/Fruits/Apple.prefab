@@ -119,6 +119,10 @@ PrefabInstance:
       propertyPath: accDistanceFactor
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3640842827177181812, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
+      propertyPath: minAcceleration
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4381612165925224237, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -133,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4449334867395995025, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: GrowthFactor
-      value: 7
+      value: 7.6
       objectReference: {fileID: 0}
     - target: {fileID: 4462492605097021771, guid: ad22423b6612f0745a9a35d047a21047, type: 3}
       propertyPath: m_IsActive
