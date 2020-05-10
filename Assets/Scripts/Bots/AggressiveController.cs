@@ -12,7 +12,7 @@ public class AggressiveController : MonoBehaviour
     private Rigidbody2D player;
 
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         FruitEntity = GetComponentInChildren<FruitEntity>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Rigidbody2D>();
@@ -21,6 +21,8 @@ public class AggressiveController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (FruitEntity == null || player == null) return;
+
         float xOffset = Random.Range(-1.5f, 1.5f);
         float yOffset = Random.Range(-1.5f, 1.5f);
         Vector2 pos = new Vector2(player.position.x + xOffset, player.position.y + yOffset);

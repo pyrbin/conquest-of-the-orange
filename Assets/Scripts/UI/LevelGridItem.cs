@@ -20,12 +20,17 @@ public class LevelGridItem : MonoBehaviour
         ItemBorder = transform.Find("Border").GetComponent<Image>();
 
         originalBorderColor = ItemBorder.color;
-
         SetActive(false);
     }
 
     public void SetActive(bool status)
     {
+        if (ItemFill == null || ItemBorder == null)
+        {
+            ItemFill = transform.Find("Fill").GetComponent<Image>();
+            ItemBorder = transform.Find("Border").GetComponent<Image>();
+        }
+
         if (status)
         {
             ItemBorder.color = CompleteColor;

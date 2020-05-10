@@ -139,7 +139,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void Awake()
+    public void Start()
     {
         playerPos = PlayerStart;
         Map = Instantiate(MapPrefab, MapPositionForId(0), quaternion.identity, transform);

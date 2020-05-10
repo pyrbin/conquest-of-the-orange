@@ -24,15 +24,21 @@ public class Painter : MonoBehaviour
 
     public void Start()
     {
-        if (!Surface)
-        {
-            Surface = GameObject.FindGameObjectWithTag("MainSurface").GetComponent<PaintableSurfaceTexture>();
-        }
+
     }
 
     public void Update()
     {
-        if (ReleasePaint)
+        if (Surface == null)
+        {
+            var go = GameObject.FindGameObjectWithTag("MainSurface");
+            
+            if (go == null) return;
+
+            Surface = go.GetComponent<PaintableSurfaceTexture>();
+        }
+        
+        if (ReleasePaint || Surface != null)
         {
             Paint(Surface);
         }
