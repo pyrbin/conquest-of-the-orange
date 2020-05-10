@@ -1440,7 +1440,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1108885496, guid: acde7774c0636754995374067d95e408, type: 3}
       propertyPath: m_Volume
-      value: 0.674
+      value: 0.503
       objectReference: {fileID: 0}
     - target: {fileID: 6523042301031187180, guid: acde7774c0636754995374067d95e408, type: 3}
       propertyPath: m_Volume
@@ -1500,8 +1500,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8245487852885003819, guid: acde7774c0636754995374067d95e408, type: 3}
       propertyPath: m_Volume
-      value: 0.654
+      value: 0.503
       objectReference: {fileID: 0}
+    - target: {fileID: 8245487852885003819, guid: acde7774c0636754995374067d95e408, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d1ba92a67ecb9ac4aba67ad93d9eac13, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acde7774c0636754995374067d95e408, type: 3}
 --- !u!1 &2064119827
