@@ -10,7 +10,7 @@
 
 ## Description:
 
-You play as an orange, competing with the other fruits on the farm for fertile land. Be first to conquer 9 fields to win the game.
+You play as an orange, competing with the other fruits on the farm for fertile land. Be first to conquer 9 fields to win the game. We wanted to addmultiplayer but didn't have the time nor enough knowledge of unity networking, so you have to play against our mediocre​ bots instead.
 
 ## Controls:
 
